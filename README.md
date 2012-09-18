@@ -1,6 +1,3 @@
-On Everything:
-
-* install TTF fonts in /fonts
 
 On Windows:
 
@@ -20,3 +17,8 @@ On OSX / Linux:
   * ln -s work/vim/vimfiles .vim
   * ln -s work/vim/vimrc .vimrc
 
+On Everything:
+
+* install TTF fonts in /fonts
+* in vim:
+  * :helptags /path/to/vimfiles/doc
