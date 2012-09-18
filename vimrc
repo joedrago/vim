@@ -71,7 +71,7 @@ set guioptions+=LlRrb
 set guioptions-=LlRrb
 set guioptions+=mT
 set guioptions-=mT
-set guifont=ProggyCleanTTSZ:h12:cANSI
+set guifont=ProggyCleanTTSZ:h12
 
 " astyle settings - TODO: dont hardcode options path
 autocmd BufNewFile,BufRead *.h set formatprg=astyle\ --options=c:\work\metroid\tools\astyle\astyleOptions.txt
