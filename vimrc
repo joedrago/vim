@@ -39,58 +39,29 @@ autocmd BufEnter fabfile setlocal ft=python
 autocmd BufEnter wscript setlocal ft=python
 autocmd BufRead */cmake/* setlocal ft=cmake
 
+" Color formatting
 colorscheme koehler
 syntax enable
-
-map <f1> :bp<cr>
-map <f2> :bn<cr>
-map <f3> :TlistToggle<CR>
-map <f4> @q
-map <f5> :cp<CR>
-map <f6> :cn<CR>
-map <f7> :!single --srcRoot c:\work\metroid --dstRoot c:\work\metroid\build\debug --src %<CR>
-map <f8> :ccl<CR>
-map <f9> :setl ar \| silent !p4 edit % \| setl noar<CR>
-map <f10> :!style.bat %<CR>
-map <f11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-map <f12> :bd<cr>
-
-" map <f6> :make `basename % .cpp`.o<CR>
-
-
-let NERDChristmasTree = 1
-" let NERDTreeQuitOnOpen = 1
-
 au BufWinEnter * let w:m1=matchadd('WarningMsg', '\t', -1)
 au BufWinEnter * let w:m2=matchadd('WarningMsg', '[\t ]\+$', -1)
 hi WarningMsg guibg=DarkCyan
 hi Search guibg=DarkGreen
 
+map <f1> :bp<cr>
+map <f2> :bn<cr>
+map <f4> @q
+map <f5> :cp<CR>
+map <f6> :cn<CR>
+map <f8> :ccl<CR>
+map <f9> :setl ar \| silent !p4 edit % \| setl noar<CR>
+map <f12> :bd<cr>
+
 " Display error window on bottom
 au FileType qf wincmd J
-
-set makeprg=smake
-set tags=tags;/
-
-let Tlist_Use_Right_Window = 1
-let Tlist_Show_One_File = 1
-let Tlist_WinWidth = 50
-
-" command -nargs=* CG AsyncCommand ack --cc --cpp <q-args>
-
-command -nargs=* -complete=dir A Ack --ignore-dir=boost --cc --cpp <args>
-command -nargs=* -complete=dir AM Ack --ignore-dir=boost --cc --cpp <args> c:\work\metroid\nrdapp\src\platform\wiiu c:\work\metroid\3rdParty\cafe_sdk
-nmap <Leader>f :execute "Ack --ignore-dir=boost --cpp --cc " . expand("<cword>")<CR>
-
-" nmap <C-f> :FindFile<CR>
-" nmap <C-s> :FindFileSplit<CR>
 nmap <Leader>c :ccl<CR>
 
-let g:CommandTMaxFiles=300000
-"let g:CommandTMaxHeight=10
-let g:CommandTNeverShowDotFiles=1
-"let g:CommandTMatchWindowReverse=1
-"let g:CommandTMatchWindowAtTop=1
+" set makeprg=smake
+set tags=tags;/
 
 au BufRead quickfix setlocal nobuflisted wrap number
 
@@ -100,9 +71,9 @@ set guioptions+=LlRrb
 set guioptions-=LlRrb
 set guioptions+=mT
 set guioptions-=mT
-
 set guifont=ProggyCleanTTSZ:h12:cANSI
 
+" astyle settings - TODO: dont hardcode options path
 autocmd BufNewFile,BufRead *.h set formatprg=astyle\ --options=c:\work\metroid\tools\astyle\astyleOptions.txt
 autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --options=c:\work\metroid\tools\astyle\astyleOptions.txt
 autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ --options=c:\work\metroid\tools\astyle\astyleOptions.txt
