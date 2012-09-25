@@ -53,7 +53,7 @@ map <f4> @q
 map <f5> :cp<CR>
 map <f6> :cn<CR>
 map <f8> :ccl<CR>
-map <f9> :setl ar \| silent !p4 edit % \| setl noar<CR>
+map <f9> :silent !p4 edit %<CR>
 map <f12> :bd<cr>
 
 " Display error window on bottom
@@ -65,7 +65,7 @@ set tags=tags;/
 
 au BufRead quickfix setlocal nobuflisted wrap number
 
-set wildignore+=*.o,*.obj,.svn,*.elf,*.exe,*boost*
+set wildignore+=*.o,*.obj,.svn,*.elf,*.exe,*boost*,*build*
 
 set guioptions+=LlRrb
 set guioptions-=LlRrb
@@ -86,6 +86,11 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 let g:ctrlp_user_command = "flashlight_srcs %s"
 let g:ctrlp_root_markers = ['tags']
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](boost|build)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': '',
+    \ }
 let g:ctrlp_prompt_mappings = {
     \ 'PrtBS()':              ['<bs>', '<c-]>'],
     \ 'PrtDelete()':          ['<del>'],
