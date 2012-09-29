@@ -84,7 +84,7 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_working_path_mode = 'wr'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
-let g:ctrlp_user_command = "flashlight_srcs %s"
+let g:ctrlp_user_command = "/home/joe/bin/flashlight_srcs %s"
 let g:ctrlp_root_markers = ['tags']
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](boost|build)$',
