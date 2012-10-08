@@ -33,6 +33,16 @@ set mouse=a
 " Change the default buffer to the clipboard
 set clipboard=unnamed
 
+" grep
+function! Ack(args)
+    let grepprg_bak=&grepprg
+    set grepprg=ack-grep\ -H\ --nocolor\ --nogroup
+    execute "silent! grep " . a:args
+    botright copen
+    let &grepprg=grepprg_bak
+endfunction
+command! -nargs=* -complete=file Ack call Ack(<q-args>)
+
 autocmd FileType rst setlocal textwidth=80
 autocmd FileType make setlocal noexpandtab
 autocmd BufEnter fabfile setlocal ft=python
@@ -77,6 +87,7 @@ set guifont=ProggyCleanTTSZ:h12
 autocmd BufNewFile,BufRead *.h set formatprg=astyle\ --options=c:\work\metroid\tools\astyle\astyleOptions.txt
 autocmd BufNewFile,BufRead *.c set formatprg=astyle\ --options=c:\work\metroid\tools\astyle\astyleOptions.txt
 autocmd BufNewFile,BufRead *.cpp set formatprg=astyle\ --options=c:\work\metroid\tools\astyle\astyleOptions.txt
+autocmd BufNewFile,BufRead *.pl set formatprg="perltidy -bl -sbl -nce -asbl -ole=unix"
 
 " CtrlP settings
 let g:ctrlp_max_height = 50
@@ -84,7 +95,7 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_working_path_mode = 'wr'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
-let g:ctrlp_user_command = "/home/joe/bin/flashlight_srcs %s"
+let g:ctrlp_user_command = "flashlight_srcs %s"
 let g:ctrlp_root_markers = ['tags']
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](boost|build)$',
