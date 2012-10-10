@@ -70,7 +70,7 @@ map <f12> :bd<cr>
 au FileType qf wincmd J
 nmap <Leader>c :ccl<CR>
 
-" set makeprg=smake
+set makeprg=smake
 set tags=tags;/
 
 au BufRead quickfix setlocal nobuflisted wrap number
