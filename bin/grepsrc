@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find . -name \*.h -o -name \*.cpp -o -name \*.c | grep -v \.git | xargs grep -n $*
+
